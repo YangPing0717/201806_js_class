@@ -14,7 +14,7 @@ break：立刻終止迴圈
 continue：立刻進入下一回圈
 % mod 取餘數
 
-<script>
+<!-- <script>
 let n=0;
 while(n<10){
     if(n==5){
@@ -24,10 +24,10 @@ while(n<10){
     n++;
 }
 console.log("final", n);
-</script>
+</script> -->
 
 
-<script>
+<!-- <script>
 let n=0;
 while(n<10){
     n++;
@@ -37,12 +37,12 @@ while(n<10){
     console.log(n);
 }
 console.log("final", n);
-</script>
+</script> -->
 
 
 
-
-<!--<script>
+% mod 取餘數
+<!-- <script>
 let n=0;
 while(n<10){
     n++;
@@ -52,11 +52,12 @@ while(n<10){
     console.log(n);
 }
 console.log("final", n);
-</script>-->
+</script> -->
+
 
 1+2+3+4....+50
 let result=(1+50)*50/2
-<!--<script>
+<!-- <script>
 let sum=0;  // 紀錄最後的總和
 let n=1;    // 在迴圈中，追蹤1,2,3,4,5, ...每個數字
 while(n<=50){
@@ -65,11 +66,12 @@ while(n<=50){
     n++;
 }
 console.log(sum);
-</script>-->
+</script> -->
+
 
 使用者輸入一個數字，計算整數的平方根
 9=>3, 16=>4, 25=>5, 30=>沒有, 
-<!--<script>
+<!-- <script>
 let num=prompt("enter a number", '')
 number=parseInt(num);
 let n=1;
@@ -77,10 +79,12 @@ while(n<num){
     console.log(n);
     n++;
 }
-</script>-->
+</script> -->
+以上：將輸入的數字弄成純數字，然後累加
 
 
-使用者輸入一個數字，開根號是否被整除
+使用者輸入一個數字，開根號是否被整除(計算整數的平方根)
+9=>3, 16=>4, 25=>5, 30=>沒有,
 <!-- <script>
 let num=prompt("enter a number", '')
 number=parseInt(num);
@@ -96,12 +100,26 @@ while(n<num){
 }
 </script> -->
 
+<!-- <script>
+let num=prompt('enter a number','');
+number=parseInt(num);
+let n=1;
+while(n<=num){
+    if(n*n==num){
+        alert('答案是'+n);
+        break;
+    }else if(n==num-1){
+        alert('開根號無法整除');
+    }
+    n++;
+}
+</script> -->
 
 
 for 迴圈 // 與 while 差別: for 的規則較能一目了然 ( ) 裡面就能看出 
 <!-- <script>
 let sum=0;
-for(let n=1;n<=50;n++){  // 進入圈時執行一次 ; n<=50 ; 每次繞圈圈時執行
+for(let n=1;n<=50;n++){  // 進入圈時執行第一次 ; n<=50 ; 每次繞圈圈時執行
     sum=sum+n;  
     // n++;
 }
@@ -109,8 +127,22 @@ console.log(sum);
 </script> -->
 
 
-作業；
-使用者輸入一數字，判斷是否整除 7 與 9   質數 合數
+<script>
+let num=prompt('enter a number','');
+number=parseInt(num);
+let n=1;
+while(n<=num){
+    if(n*7==num){
+        alert('答案是'+n);
+        break;
+    }else if(n==num-1){
+        alert('無法被7整除');
+    }
+    n++;
+}
+</script>
+
+作業：使用者輸入一數字，判斷是否整除 7 與 9   質數 合數
 
 
 </body>

@@ -16,7 +16,7 @@ test("000000");
 </script>-->
 
 
-<!--<script>
+<!-- <script>
 function add(n1,n2){  // () 裡放參數列表，可建立 n 個參數，用逗號隔開
     // return;   // return如果在這個位置 強制中段涵式 跳到 { } 外
     // alert(n1+n2);
@@ -25,11 +25,11 @@ function add(n1,n2){  // () 裡放參數列表，可建立 n 個參數，用逗�
 let result=add(3,4)*add(5,8);
 alert(result);
 // add(32,41);
-</script>-->
+</script> -->
 
 
-包裝涵式；重覆取用這段功能時
-<!--<script>
+包裝涵式：重覆取用這段功能時
+<!-- <script>
 function calSum(max){
     let sum=0;
     for(let n=1;n<=max;n++){  // 進入圈時執行一次 ; n<=50 ; 每次繞圈圈時執行
@@ -40,18 +40,31 @@ console.log(sum);
 }
 calSum(50);
 calSum(130);
-</script>-->
+</script> -->
 
 
-<!--<script>
+
+<!-- <script>
+let sum=0;
+for(let n=1;n<=50;n++){  // 進入圈時執行第一次 ; n<=50 ; 每次繞圈圈時執行
+    sum=sum+n;  
+    // n++;
+}
+console.log(sum);
+</script> -->
+
+
+
+<!-- <script>
 let x=3;
-let add=function(n1,n2){ //宣告一個變數 裡面是涵式
+let add=function(n1,n2){  //宣告一個變數 裡面是涵式
 	alert(n1*n2);
 };
 add(3,4);
 let newName=add;
 newName(5,6)
-</script>-->
+</script> -->
+
 
 
 變數的使用範圍 - Scope
