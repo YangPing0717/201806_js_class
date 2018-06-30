@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>物件導向 - Object</title>
+</head>
+<body>
+
+小遊戲  http://slither.io/
+
+<!-- <script>
+// 建立物件
+let player=new Object();
+// 物件的屬性
+player.name='AAA';
+player.hp=100;
+// 物件的方法
+player.fight=function(){ // 可以寫命令 怎麼玩
+    // this 是函式的綁定物件：一個函式，呼叫時搭配一個綁定物件，物件成員裡的 this（函式裡就必須使用 this）
+    this.hp=this.hp-2;
+};
+player.rest=function(){
+    this.hp++;
+};
+player.report=function(){
+    console.log(this.name, this.hp)
+};
+// 所有的 '.' 前後的意思 - 物件.成員名稱=資料
+
+// 建立物件、使用物件，可以分開
+
+// 使用物件
+console.log(player);
+player.fight();
+player.rest();
+player.report();
+console.log(player.name, player.hp)
+alert('Hello '+player.name);
+</script> -->
+
+<!-- <script>  // 練習
+let player=new Object();
+player.name='olive';
+player.hp=100;
+player.fight=function(){
+    this.hp=this.hp-2;
+};
+player.rest=function(){
+    this.hp=this.hp+2;
+};
+player.report=function(){
+    console.log(this.name, this.hp)
+};
+// player.fight();
+player.rest();
+player.report();
+console.log(player.name, player.hp)
+</script> -->
+
+
+
+
+
+<!-- <script>
+// 將函式包裝成一個可以重複呼叫使用的功能（功能同上方）
+function creatPlayerObject(){ // 函式呼叫使用才有意義
+    let player=new Object();
+    // 物件的屬性
+    player.name='olive';
+    player.hp=1000;
+    // 物件的方法
+    player.fight=function(){ // 可以寫命令 怎麼玩
+        // this 是函式的綁定物件；一個函式，呼叫時搭配一個綁定物件，物件成員裡的 this，函式裡就必須使用 this
+        this.hp=this.hp-2;
+    };
+    player.rest=function(){
+        this.hp++;
+    };
+    player.report=function(){
+        console.log(this.name, this.hp)
+    };
+    return player; // 回傳值，將資料傳到 player1 裡
+}
+
+// 使用物件
+let player1=creatPlayerObject();
+player1.fight();
+player1.rest();
+player1.report();
+
+let player2=creatPlayerObject();
+player2.fight();
+player2.report();
+</script> -->
+
+<!-- <script>  // 練習
+function creatPlayerObject(){
+    let player=new Object();
+    player.name='olive';
+    player.hp=1000;
+    player.fight=function(){ 
+        this.hp=this.hp-50;
+    };
+    player.rest=function(){
+        this.hp++;
+    };
+    player.report=function(){
+        console.log(this.name, this.hp)
+    };
+    return player;
+}
+let player1=creatPlayerObject();
+player1.fight();
+player1.report();
+</script> -->
+
+
+<!-- <script>
+function creatPlayerObject(nameArg, hpArg){  // 把參數資料放進成員裡
+    let player=new Object();
+    // 物件的屬性
+    player.name=nameArg;
+    player.hp=hpArg;
+    // 物件的方法
+    player.fight=function(){ // 可以寫命令 怎麼玩
+        // this 是函式的綁定物件；一個函式，呼叫時搭配一個綁定物件，物件成員裡的 this，函式裡就必須使用 this
+        this.hp=this.hp-2;
+    };
+    player.rest=function(){
+        this.hp++;
+    };
+    player.report=function(){
+        console.log(this.name, this.hp)
+    };
+    return player; // 回傳值，將資料傳到 player1 裡
+}
+// 使用物件
+let player1=creatPlayerObject('olive', 1000);
+player1.fight();
+player1.rest();
+player1.report();
+
+let player2=creatPlayerObject('Timothée',1200);
+player2.fight();
+player2.report();
+</script> -->
+
+<script>  // 練習
+function creatPlayerObject(nameArg, hpArg){
+    let player=new Object();
+    player.name=nameArg;
+    player.hp=hpArg;
+    player.fight=function(){ 
+        this.hp=this.hp-50;
+    };
+    player.rest=function(){
+        this.hp++;
+    };
+    player.report=function(){
+        console.log(this.name, this.hp)
+    };
+    return player;
+}
+let player1=creatPlayerObject('oliveYang', 1000)
+player1.fight();
+player1.report();
+let player2=creatPlayerObject('TimothéeChalamet', 1200)
+player2.fight();
+player2.report();
+</script>
+
+<script>  // 練習：改寫成 建構函式(constructor)
+function Player(nameArg, hpArg){
+    // let player=new Object(); 省略
+    this.name=nameArg;
+    this.hp=hpArg;
+    this.fight=function(){
+        this.hp=this.hp-200
+    }
+    this.rest=function(){
+        this.hp=this.hp+20
+    }
+    this.report=function(){
+        console.log(this.name, this.hp)
+    }
+    // return player; 省略
+}
+let player10=new Player('YangPing', 2000)
+player10.fight();
+player10.report();
+let player11=new Player('Timothée', 2200)
+player11.fight();
+player11.rest();
+player11.report();
+</script>
+
+
+<script>
+// 做一個專門用來產生玩家物件的函式
+// 建構函式(constructor)
+function Player(nameArg, hpArg){  // 通常建構函式的命名，以名詞字首大寫居多(建議)
+    // 自動建立新的空白物件，在建構函式中使用 this 取得
+    // let player=new Object(); 此行省略
+    this.name=nameArg; 
+    this.hp=hpArg;
+    this.fight=function(name, at){  // at 是啥？
+        this.hp=this.hp-at;  
+        console.log('Fight against '+name)
+    };
+    this.rest=function(){
+        this.hp++;
+    };
+    this.report=function(){
+        console.log(this.name, this.hp)
+    };
+    // return this;  此行省略，會自動回傳建立好的物件
+}
+
+// 使用物件 
+// 使用：new 建構函式() 來產生物件
+let player30=new Player('AAA', 100);
+player30.fight('userA', 20);  // 20 是 at？
+// player30.rest();
+// let player4=new Player('Fighter', 5000);
+// player4.report();
+
+// let player2=new Player('BBB',80);
+// player2.fight();
+// player2.report();
+</script>
+
+
+<!-- <script>
+// 包裝 建構函式(constructor)
+function Moster(name, at){  
+    this.name=name; 
+    this.at=at;
+}    
+function Player(name, hp){  
+    this.name=name; 
+    this.hp=hp;
+    this.fight=function(mon){ 
+        this.hp=this.hp-at;
+        console.log('Fight against '+name)
+    };
+    this.rest=function(){
+        this.hp++;
+    };
+    this.report=function(){
+        console.log(this.name, this.hp)
+    };
+}
+let slime=new Moster('slimeslime', 2);
+let dragon=new Moster('dragondragon', 2);
+</script> -->
+
+
+
+
+</body>
+</html>
