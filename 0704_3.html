@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+.box{
+    background: red;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50px;
+    top:50px;
+}
+</style>
+<script>
+let box; // 最外面的變數 全域變數
+function init(){  // HTML DOM 完全載入後執行
+    box=document.getElementById('box');
+    // 點擊第一下 拿起來
+    box.addEventListener('click', pickup);  
+}
+function pickup(){
+    document.addEventListener('mousemove', move);
+    // 已經拿起來 若再點擊一下 就放下
+    box.removeEventListener('click', pickup); 
+    box.addEventListener('click', putdown);
+}
+function move(e){ // 事件物件
+    // document.title=e.clientX +" "+ e.clientY;  // 測試:按到紅塊 才會在網頁標題上出現滑鼠坐標
+    // 讓 css 的 left & top 跟著坐標動
+    box.style.left=(e.clientX-50) +'px';
+    box.style.top=(e.clientY-50) +'px';
+}
+function putdown(){
+    document.removeEventListener('mousemove', move);
+    // 已經放下了 若再點擊 要再拿起來
+    box.removeEventListener('click', putdown); 
+    box.addEventListener('click', pickup);
+}
+</script>
+</head>
+
+<body onload="init();">
+    <div id="box" class="box"></div>
+
+作業:
+1. 拖曳 mouseup mousedown 
+2. 保持穩定 點擊下去的座標 動態取得座標 不能寫死 
+    (box.offsetLeft, box.offsetTop)
+</body>
+</html>

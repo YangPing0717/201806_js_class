@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>事件處理</title>
+
+<!--<script>  // 教學用標準函式
+// onload 隱藏事件，HTML DOM 完全載入後執行
+function init(){  
+    // 事件處理三要素:對象是誰? 何時? 要做什麼事?
+    let btn=document.getElementById('btn');
+    let handler=function(){
+        alert('HelloHello')
+    };
+    // 註冊事件處理函式
+    btn.addEventListener('click', handler); // ('事件名稱', 要做的事(建立函式))
+
+    // btn.removeEventListener('click', handler); // 拿掉 handler
+}
+</script>-->
+
+<!--<script>
+function init(){  
+    let btn=document.getElementById('btn');
+    btn.addEventListener('click', function(){
+        alert('HelloHello')
+    }); // (匿名函式))
+}
+</script>-->
+
+<script>  // 教學用標準函式
+// onload 隱藏事件，HTML DOM 完全載入後執行
+function init(){  
+    // 事件處理三要素:對象是誰? 何時? 要做什麼事?
+    let btn=document.getElementById('btn');
+    let handler=function(e){
+        console.log(e)
+        alert(e.clientX +" "+ e.clientY) // 從瀏覽器的 console 裡可以看到所有的事件都可以套用
+    };
+    // 註冊事件處理函式
+    btn.addEventListener('click', handler); // ('事件名稱', 要做的事(建立函式))
+
+    /*
+    1. 瀏覽器偵測到使用者觸發 click 事件
+    2. 瀏覽器收集雨事件相關的資訊，產生event object(事件物件)
+        let eventObjectListener=new 事件物件();
+    3. 呼叫事件處理函式，並且固定將事件物件透過參數傳入
+        handler(eventObject);
+    */
+
+    // btn.removeEventListener('click', handler); // 拿掉 handler
+}
+</script>
+
+</head>
+<body onload="init();">
+    <button id="btn">CLICK</button>
+</body>
+</html>
