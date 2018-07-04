@@ -13,11 +13,37 @@
 <script>
 function add(){
     let link=document.createElement('a')  // 生出一個邊謙物件
-    link.innerHTML='google';
+    link.innerHTML='Google';
     link.href='https://training.pada-x.com/'
     document.body.appendChild(link);  // 串到 html DOM 中
 }
-    
+</script>
+
+<div>
+    <button onclick="addLink()">addLink</button>
+</div>
+
+<script>
+    function addLink(){
+        let link=document.createElement('div');
+        link.innerHTML='Google';
+        link.href='https://training.pada-x.com/';
+        document.body.appendChild(link);
+    }
+</script>
+
+
+<div>
+    <button onclick="addlinkA();">linkA_linkA</button>
+</div>
+
+<script>
+function addlinkA(){
+    let linkA=document.createElement('a');
+    linkA.innerHTML='gotoanywhere';
+    linkA.href='https://www.w3schools.com/js/js_functions.asp';
+    document.body.appendChild(linkA)
+}
 </script>
 
 https://www.w3schools.com/jsref/dom_obj_document.asp
@@ -25,8 +51,8 @@ Property / Method()
 屬性 / 方法()
 
 https://www.w3schools.com/jsref/dom_obj_all.asp
-The HTML DOM Element Object :  所有標籤都可以套用的方法
-HTML Element Objects Reference : 所有標籤
+The HTML DOM Element Object：所有標籤都可以套用的方法
+HTML Element Objects Reference：所有標籤
 每個標籤點進去 會 list 其屬性 用法
 
 https://www.w3schools.com/js/js_functions.asp
@@ -34,6 +60,8 @@ https://www.w3schools.com/js/js_functions.asp
 https://developer.mozilla.org/zh-TW/docs/Web/JavaScript/Reference/Global_Objects/Function
 
 https://stackoverflow.com/
+
+
 
 
 </body>

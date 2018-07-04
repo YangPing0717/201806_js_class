@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML DOM</title>
+
+
+<style>
+.testA{ 
+    transition:all .3s ease-in-out;
+}
+.testB{
+    font-weight: 700;
+    font-size: 150%;
+    color: orangered;
+    transition:all .3s ease-in-out;
+}
+.tab{
+    color:gray;
+    font-weight: 300;
+    font-size: 100%;
+    transition:all .3s ease-in-out;
+    cursor: pointer;
+}
+.tab_current{
+    color: orangered;
+    font-weight: 700;
+    font-size: 150%;
+    transition:all .25s ease-in-out;
+    cursor: pointer;
+}
+.btn{
+    font-size: 120%;
+}
+input[type=button], button{
+    color: #FFFFFF;
+    background-color: orangered;
+    padding: 8px 20px;
+    border-radius: 30px;
+    border: none;
+    transition:all .25s ease-in-out;
+}
+input[type=button]:hover, button:hover{
+    background-color:#c53500;
+}
+</style>
+
+</head>
+<body>
+
+<h2>w3schools.com</h2>
+<div id="content" class="testA">Window Object Properties</div>
+<button onclick="changeContent();" type="button">CLICK</button>
+<button onclick="changeInside();" type="button">changeInside</button>
+<button onclick="clickChange();" type="button">clickChange</button>
+<!-- <script>
+    console.log(window.document.body.innerHTML);
+    window.document.body.innerHTML='HTML DOM'  // 替換掉裡面的資料
+</script> -->
+
+<script>
+function changeContent(){
+    let divElement=document.getElementById('content');
+    divElement.innerHTML='JavaScript ES6 網頁前端工程入門';
+    // console.log(divElement.id);
+    divElement.className='testB';
+    // divElement.style.color='red';
+    // divElement.style.fontWeight='700';
+    
+    // divElement.style.display='none'
+    // console.log(divElement.style);  //一個標籤有一整組的樣式
+}
+</script>
+
+<script>  // 練習
+function changeInside(){
+    let divInside=document.getElementById('content');
+    divInside.innerHTML='小遊戲 http://slither.io/'
+    divInside.classList.toggle('testB')
+}
+</script>
+
+<script>  // 練習
+function clickChange(){
+    let divContent=document.getElementById('content');
+    divContent.innerHTML='Definition and Usage';
+    divContent.classList.toggle('testB')
+}
+</script>
+
+
+
+<br /><br />
+<!--<div>
+    <span id="page" onclick='changePage()'>WEB</span>
+    <span id="img" onclick="changeImg()">PHOTO</span>
+</div>-->
+<div>
+    <span id="page" onclick='change(0)' class="tab_current">WEB</span>
+    <span id="img" onclick="change(1)" class="tab">PHOTO</span>
+</div>
+<input type="text" placeholder="Search.." name="search" >
+<input id="btn" type="button" value="Search Website">
+
+<br /><br />
+作業：標籤選單 tab menu
+<br /><br />
+
+<div>
+    <span id="web" onclick="changeBtn(0)">WEBWEB</span>
+    <span id="photo" onclick="changeBtn(1)">PHOTOPHOTO</span>
+</div>
+<input type="text" placeholder="search.." name="search">
+<input id="button" type="button" value="Search">
+
+
+<!--<script>  // 重複性太大
+function changeImg(){
+    let page=document.getElementById('page');
+    let img=document.getElementById('img');
+    let btn=document.getElementById('btn');
+    // page.style.fontWeight='300';
+    img.className='test';
+    // img.style.color='red';
+    btn.value='Search Photo'
+}
+function changePage(){
+    let page=document.getElementById('page');
+    let img=document.getElementById('img');
+    let btn=document.getElementById('btn');
+    page.className='testWeb';
+    // img.style.fontWeight='300';
+    btn.value='Search Website';
+}
+</script>-->
+
+<!--<script>
+function change(index){
+    let page=document.getElementById('page');
+    let img=document.getElementById('img');
+    let btn=document.getElementById('btn');
+    if (index==0){
+        page.className='testWeb';
+        btn.value='Search Website';
+    } else if (index==1){
+        img.className='test';
+        btn.value='Search Photo'
+    }
+}
+</script>-->
+
+<script> // 更精簡 也可以 get = $ (JQ)
+function get(id){  
+    return document.getElementById(id)
+}
+function change(index){
+    let page=get('page');
+    let img=get('img');
+    let btn=get('btn');
+    if (index==0){
+        page.className='tab_current';
+        img.className='tab';
+        btn.value='Search Website';
+    } else if (index==1){
+        page.className='tab';
+        img.className='tab_current';
+        btn.value='Search Photo'
+        // img.classList.toggle('tab_current');
+    }
+}
+</script>
+
+
+<script>  // 練習
+function get(id){
+    return document.getElementById(id)
+}
+function changeBtn(index){
+    let web=get('web');
+    let photo=get('photo');
+    let button=get('button')
+    if (index==0){
+        web.className='tab_current';
+        photo.className='tab';
+        button.value='Search Website';
+    } else if (index==1){
+        web.className='tab';
+        photo.className='tab_current';
+        button.value='Search Photo';
+    }
+}
+</script>
+
+<script>  // 練習
+function get(id){
+    return document.getElementById(id);
+}
+function changeBtn(method){
+    let web=get('web');
+    let photo=get('photo');
+    let button=get('button');
+    if (method==0){
+        button.value='Search Website';
+        web.className='tab_current';
+        photo.className='tab';
+    } else if (method==1){
+        button.value='Search Photo';
+        web.className='tab';
+        photo.className='tab_current';
+    }
+}
+</script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
