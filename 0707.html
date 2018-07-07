@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+<style>
+.box{
+    background: red;
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    left: 50px;
+    top:50px;
+}
+</style>
+
+<!--<script>
+let box; // 最外面的變數 全域變數
+function init(){  // HTML DOM 完全載入後執行
+    box=document.getElementById('box');
+    // 點擊第一下 拿起來
+    box.addEventListener('mousedown', pickup);  
+}
+function pickup(){
+    document.addEventListener('mousemove', move);
+    // 已經拿起來 若再點擊一下 就放下
+    box.removeEventListener('mousedown', pickup); 
+    box.addEventListener('mouseup', putdown);
+}
+function move(e){ // 事件物件
+    // document.title=e.clientX +" "+ e.clientY;  // 測試:按到紅塊 才會在網頁標題上出現滑鼠坐標
+    // 讓 css 的 left & top 跟著坐標動
+    box.style.left=(e.clientX-50) +'px';
+    box.style.top=(e.clientY-50) +'px';
+}
+function putdown(){
+    document.removeEventListener('mousemove', move);
+    // 已經放下了 若再點擊 要再拿起來
+    box.removeEventListener('mouseup', putdown); 
+    box.addEventListener('mousedown', pickup);
+}
+</script>-->
+
+可以更簡易
+<script>
+let box; // 最外面的變數 全域變數
+function init(){  // HTML DOM 完全載入後執行
+    box=document.getElementById('box');
+    // 建立拖曳操作
+    box.addEventListener('mousedown', pickup);  
+    box.addEventListener('mouseup', putdown);  
+}
+
+let differX, differY; // 宣告全域變數
+function pickup(e){ // 滑鼠按住就觸發
+    document.addEventListener('mousemove', move);
+    // // 已經拿起來 若再點擊一下 就放下
+    // box.removeEventListener('mousedown', pickup); 
+    // box.addEventListener('mouseup', putdown);
+
+    // 算出滑鼠和方塊左上角的座標差，並存放在痊癒變數中
+    differX=e.clientX-box.offsetLeft;
+    differY=e.clientY-box.offsetTop;
+}
+
+function move(e){ // 事件物件
+    // document.title=e.clientX +" "+ e.clientY;  // 測試:按到紅塊 才會在網頁標題上出現滑鼠坐標
+    // 讓 css 的 left & top 跟著坐標動
+    box.style.left=(e.clientX-differX) +'px';
+    box.style.top=(e.clientY-differY) +'px';
+}
+function putdown(){
+    document.removeEventListener('mousemove', move);
+    // // 已經放下了 若再點擊 要再拿起來
+    // box.removeEventListener('mouseup', putdown); 
+    // box.addEventListener('mousedown', pickup);
+}
+</script>
+
+
+</head>
+
+<body onload="init();">
+    <div id="box" class="box"></div>
+
+
+
+
+作業:
+1. 拖曳 mouseup 對應 putdown，mousedown 對應 pickup
+
+2. 保持穩定 點擊下去的座標 動態取得座標 不能寫死 
+    (box.offsetLeft, box.offsetTop)
+</body>
+</html>

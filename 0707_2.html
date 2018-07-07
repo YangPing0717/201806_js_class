@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>排程</title>
+
+<!--<script>
+let timer;
+function init(){ // html dom 載入後觸發
+    timer=document.getElementById('timer')
+    window.setTimeout(countdown, 1000) // (要做的工作(就是放個函式), 時間)
+    // alert(1)
+}
+function countdown(){
+    // alert(2)  // 2 秒鐘再跑這個
+    timer.innerHTML=timer.innerHTML-1; // 1 秒鐘後數字減 1 
+    if(timer.innerHTML>0){
+        window.setTimeout(countdown, 1000)
+    }else{
+        window.location='https://www.google.com/'
+    }
+}
+window.addEventListener('load', init)
+</script>-->
+
+<script>
+let timer;
+let intervalID;
+function init(){ // html dom 載入後觸發
+    timer=document.getElementById('timer')
+    intervalID=window.setInterval(countdown, 1000) // (要做的工作(就是放個函式), 時間)
+    // alert(1)
+}
+function countdown(){
+    // alert(2)  // 2 秒鐘再跑這個
+    timer.innerHTML=timer.innerHTML-1; // 1 秒鐘後數字減 1 
+    if(timer.innerHTML>0){
+        // 省略 window.setTimeout(countdown, 1000)
+    }else{  // 倒數結束，做事
+        // window.location='https://www.google.com/' 
+        // 轉換其他頁面，會避掉不斷循環的問題，解法是 clearInterval
+        // 清除排程
+        window.clearInterval(intervalID)  // ( 排程編號 電腦自己會跑排程 id )
+        alert('你笨蛋')
+    }
+}
+window.addEventListener('load', init)
+</script>
+
+</head>
+
+<body>
+<span id="timer">3</span>    
+
+</body>
+</html>

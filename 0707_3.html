@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字串物件 / 陣列物件</title>
+
+<!--<script>
+function check(){
+    let text=document.getElementById('input').value;
+    // let s=new String('hello')+'hello';
+    // alert(s)
+
+    // console.log('字串的長度', text.length);
+    // console.log('取得第二個字', text.charAt(1));
+    // console.log('轉成大寫', text.toUpperCase());
+    // console.log('取得子字串 ell', text.substring(1,4));
+    // console.log('搜尋是否包含 abc', text.indexOf('abc'));
+    // console.log('搜尋是否包含 llo', text.indexOf('llo'));
+
+    // if(text.indexOf('fuck')>-1){ // -1 代表不是的話
+    //     alert('dont say that')
+    // }
+
+    if(text.toLowerCase().indexOf('fuck')>-1){ 
+        // 先轉小寫，再判斷   要判斷單一字彙:費用2000元 再多複雜判斷 無法達成
+        alert('dont say that')
+    }
+
+    // 陣列物件
+    let a=new Array(3);  // 3 筆資料 或更多筆
+    a[0]=60;
+    a[1]=70;
+    a[2]=90;
+    a[3]=88;
+    let sum=0;
+    for(let i=0;i<a.length;i++){
+        sum+=a[i];
+        // console.log(a[i])  
+    }
+    alert(sum/a.length) // 計算平均數 
+}
+</script>-->
+
+<script>
+function check(){
+    let text=document.getElementById('input').value;
+
+    // select
+    // let gender=document.getElementById('gender');
+    // if(gender.selectedIndex==0){
+    //     alert('select gender')
+    // }else{
+    //     let option=gender.options[gender.selectedIndex];
+    //     alert(option.innerHTML)
+    // }
+
+    // radio btn
+    // let ages=document.getElementsByName('age');  // 把所有名為 age 的都選起來
+    // for(let i=0;i<ages.length;i++){
+    //     console.log(ages[i].checked)
+    // }
+
+    let ages=document.getElementsByName('age');  
+    let age='choose age';
+    for(let i=0;i<ages.length;i++){
+        if(ages[i].checked){
+            age=ages[i].value;
+            break;
+        }
+    }
+    alert(age);
+}
+</script>
+
+
+
+
+
+</head>
+
+<body>
+<!--<input type="text" id="input" value="Hello...">
+<button onclick="check();">Submit</button>-->
+
+<input type="text" id="input" value="Hello...">
+<select name="" id="gender">
+    <option value="">gender</option>
+    <option value="">male</option>
+    <option value="">female</option>
+</select>
+<div>AGE</div> 
+<input type="radio" name="age" value="1">20-30 
+<input type="radio" name="age" value="2" >30-40 
+<input type="radio" name="age" value="3" >40-50
+<button onclick="check();">Submit</button>
+
+</body>
+</html>
