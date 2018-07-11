@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>City Population</title>
+</head>
+<body>
+    
+<h3>City Population</h3>
+<!--
+    會跳葉 不合乎現金使用者體驗
+<form action="http://localhost:8080/backEnd.php">
+    name <input type="text" name="name"> 
+    password <input type="password" name="password">
+    <input type="submit" value="Get">
+</form>
+<br><br>
+<div>
+    form 表單 name="name" 就是參數的名字 非常重要 對抓資料來說 <br>    
+    form input submit 必須是整組搭配
+</div>
+-->
+
+<!--<script>
+function getData(){
+    // 準備網址
+    let cityName=document.getElementById('name').value;
+    let args='name='+cityName;
+    let src='http://localhost:8080/backEnd.php?'+args;
+    // AJAX // XHR:使用 XMLHttpRequest 物件和伺服器互動
+    let req=new XMLHttpRequest();
+    req.open('get', src);
+    // (連線方式: get 或是 post 皆可, 連線網址:就是 src) 設定連線基本資訊
+    req.addEventListener('load', function(){
+        // 伺服器回應後，會觸發 load 事件。執行後續的工作
+        let result=document.getElementById('result')
+        result.innerHTML=req.responseText;
+    })
+    req.send(); //送出連線
+    // alert(req.responseText)
+}
+</script>-->
+
+<!--非同步:key 一個字母 console.log 就會出現一筆資料-->
+<!--<div>
+    name <input type="text" id="name" oninput="getData();">  
+    <button onclick="getData();">GET</button>
+</div>
+<div id="result"></div>-->
+
+GET 和 POST
+
+<script>
+function getData(){
+    // 準備網址
+    let cityName=document.getElementById('name').value;
+    let args='name='+cityName;
+    let src='http://localhost:8080/backEnd.php?'+args;
+    // AJAX // XHR:使用 XMLHttpRequest 物件和伺服器互動
+    let req=new XMLHttpRequest();
+    req.open('post', src);  
+    // (連線方式: get 或是 post 皆可, 連線網址:就是 src) 設定連線基本資訊
+    req.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+    // 內容是參數
+    req.addEventListener('load', function(){
+        // 伺服器回應後，會觸發 load 事件。執行後續的工作
+        let result=document.getElementById('result')
+        result.innerHTML=req.responseText;
+    })
+    req.send(args); //送出連線，可選擇帶入要送給伺服器的內容
+}
+</script>
+
+<div>
+    name <input type="text" id="name" oninput="getData();">  
+    <button onclick="getData();">GET</button>
+</div>
+<div id="result"></div>
+
+
+
+
+</body>
+</html>
